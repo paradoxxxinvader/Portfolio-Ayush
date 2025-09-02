@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayush Singhal | Software Engineer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    /* Import Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    /* Global */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    /* Background Particles */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #1a1a1a;
+    }
+
+    /* Header */
+    header {
+      background-color: rgba(0,0,0,0.8);
+      color: #ffcc00;
+      padding: 1.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 2px solid #ffcc00;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* Container */
+    .container {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Section */
+    section {
+      margin-bottom: 3rem;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+    }
+    
+    section h2 {
+      color: #ffcc00;
+      margin-top: 0;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    /* Gifs */
+    .gif-center {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    
+    img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Badges */
+    .badges {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    
+    .badges span {
+      background-color: #ffcc00;
+      color: #000;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #ffcc00;
+      text-align: center;
+      padding: 1rem;
+      border-top: 2px solid #ffcc00;
+    }
+
+    /* Contact Links */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .contact-links a {
+      color: #ffcc00;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-links a:hover {
+      transform: scale(1.2);
+    }
+
+    /* Professional Summary */
+    .summary {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Education */
+    .education-item {
+      margin-bottom: 1.5rem;
+    }
+    
+    .education-item h3 {
+      margin-bottom: 0.3rem;
+      color: #ffcc00;
+    }
+    
+    .education-details {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #aaa;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .skill-category {
+      background: rgba(255, 204, 0, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    
+    .skill-category h3 {
+      color: #ffcc00;
+      margin-top: 0;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+      
+      .container {
+        padding: 1rem;
+      }
+      
+      .education-details {
+        flex-direction: column;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Animation -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Ayush Singhal</h1>
+    <p>Software Development Engineer | Competitive Programmer | ML Enthusiast</p>
+    <nav>
+      <a href="#about"><i class="fas fa-user"></i> About</a>
+      <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
+      <a href="#projects"><i class="fas fa-code"></i> Projects</a>
+      <a href="#competitive"><i class="fas fa-laptop-code"></i> Competitive</a>
+      <a href="#extracurricular"><i class="fas fa-trophy"></i> Activities</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <div class="container">
+    <!-- About -->
+    <section id="about">
+      <h2><i class="fas fa-user"></i> Professional Summary</h2>
+      <p class="summary">
+        Software Development Engineer skilled in Python, C++, and Java, with experience in scalable full-stack applications, 
+        distributed systems, and API development. Strong problem-solving foundation in data structures and algorithms with a 
+        track record of debugging, optimizing, and engineering reliable software solutions. Passionate about designing 
+        high-performance systems and contributing to impactful, real-world applications.
+      </p>
+      <div class="gif-center">
+        <img src="https://i.giphy.com/media/h408T6Y5GfmXBKW62l/giphy.webp" alt="Tech GIF" width="30%">
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="education-item">
+        <h3>Indian Institute of Information Technology, Ranchi</h3>
+        <p>Computer Science and Engineering</p>
+        <div class="education-details">
+          <span>CGPA: 9.43</span>
+          <span>2023-2027</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <p>Python, C, C++, JavaScript</p>
+        </div>
+        <div class="skill-category">
+          <h3>Machine Learning</h3>
+          <p>NumPy, pandas, scikit-learn, TensorFlow</p>
+        </div>
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript, Tailwind CSS</p>
+        </div>
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <p>Node.js, Express.js, Flask, MongoDB, PostgreSQL, MySQL</p>
+        </div>
+        <div class="skill-category">
+          <h3>Systems & Tools</h3>
+          <p>Linux, Git, Postman, VS Code, Ubuntu, Vercel, Netlify</p>
+        </div>
+        <div class="skill-category">
+          <h3>Expertise</h3>
+          <p>Data Structures & Algorithms, OOP, RESTful APIs, Secure Systems, Performance Optimization</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2><i class="fas fa-code"></i> Projects</h2>
+      <ul>
+        <li>
+          <strong><a href="https://github.com/" target="_blank">Campus Cove</a></strong> – 
+          Designed and developed a centralized campus portal that streamlined student resource access, 
+          resulting in 40% faster information retrieval across academics, placements, and clubs.
+          <div class="badges">
+            <span>Python</span><span>React.js</span><span>Express.js</span><span>Role-based Access</span>
+          </div>
+        </li>
+        <li>
+          <strong><a href="https://github.com/" target="_blank">Quick AI</a></strong> – 
+          Developed a full-stack AI-powered content generation system with role management and secure authentication.
+          Built scalable backend APIs, optimized queries for high throughput.
+          <div class="badges">
+            <span>React.js</span><span>Tailwind CSS</span><span>Node.js</span><span>PostgreSQL</span>
+          </div>
+        </li>
+        <li>
+          <strong><a href="https://github.com/" target="_blank">Weather API</a></strong> – 
+          Implemented a real-time weather forecasting application integrating external APIs with HTTPS & TLS for security.
+          Enhanced reliability by engineering fault-tolerant API calls and optimized data pipelines.
+          <div class="badges">
+            <span>JavaScript</span><span>OpenWeather API</span><span>HTTPS/TLS</span>
+          </div>
+        </li>
+      </ul>
+      <div class="gif-center">
+        <img src="https://i.giphy.com/media/26tn33aiTi1jkl6H6/giphy.webp" alt="Projects GIF" width="30%">
+      </div>
+    </section>
+
+    <!-- Competitive Programming -->
+    <section id="competitive">
+      <h2><i class="fas fa-laptop-code"></i> Competitive Programming</h2>
+      <ul>
+        <li>200+ problems across LeetCode, CodeChef, and Codeforces, focusing on algorithms, complexity optimization, and problem-solving.</li>
+        <li>CodeChef: ★★ (Rating 1500)</li>
+        <li>Codeforces: Active Participant</li>
+      </ul>
+    </section>
+
+    <!-- Extracurricular Activities -->
+    <section id="extracurricular">
+      <h2><i class="fas fa-trophy"></i> Extra-Curricular Activities</h2>
+      <ul>
+        <li>
+          <strong>MatriPoshan (Hack4Bihar 2025):</strong> Built an AI-driven SMS reminder system for maternal nutrition 
+          using predictive modeling, data pipelines, and structured teamwork.
+        </li>
+        <li>
+          <strong>Flipkart GRiD 6.0:</strong> Advanced to Round 2 in Flipkart's national-level hackathon, 
+          demonstrating algorithmic problem-solving and scalable solution design.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2><i class="fas fa-envelope"></i> Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:ayushsinghal304@gmail.com">ayushsinghal304@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91 9027346749</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ayush Singhal. All rights reserved.</p>
+  </footer>
+
+  <!-- Particles JS Config -->
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 120 },
+        size: { value: 3 },
+        color: { value: "#ffcc00" },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#000000",
+          opacity: 0.6,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: "repulse" } }
+      }
+    });
+  </script>
+</body>
+</html>
